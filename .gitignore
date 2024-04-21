@@ -1,0 +1,17 @@
+### ignore all ###
+/*
+/.**
+
+### not ignore ###
+!/iterm2
+!/raycast
+!/mac
+!/symlinks
+!/vscode
+!/setup.sh
+!/link.sh
+!/starship.toml
+
+!/README.md
+!/LICENCE
+!.gitignore

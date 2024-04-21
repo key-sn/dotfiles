@@ -1,9 +1,14 @@
 # dotfiles
 
-## symlink
+## Init
 
 ```
-cd ~/dotfiles
-./setup.sh
+bash -c "$( curl -fsSL https://raw.github.com/${github-username}/dotfiles/master/setup.sh )"
 ```
 
+## Manual
+
+以下は公式の同期を利用
+- Google Chrome
+- Visual Studio Code
+  - GitHub Accountで同期
