@@ -3,7 +3,7 @@
 ## Init
 
 ```
-DIR="$HOME/.dotfiles" && TMP="$DIR/tmp.zip" && mkdir -p "$DIR" && curl -L https://github.com/key-sn/master/archive/refs/heads/main.zip -o "$TMP" && tar -xf "$TMP" --strip-components=1 -C "$DIR" && rm "$TMP" && sh "$DIR/setup.sh"
+mkdir -p "$HOME/.dotfiles" && curl -L https://github.com/key-sn/dotfiles/archive/refs/heads/main.zip -o "$HOME/.dotfiles/repo.zip" && unzip -qo "$HOME/.dotfiles/repo.zip" -d "$HOME/.dotfiles" && sh "$HOME/.dotfiles"/dotfiles-main/setup.sh
 ```
 
 ## Manual
