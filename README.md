@@ -3,7 +3,7 @@
 ## Init
 
 ```
-bash -c "$( curl -fsSL https://raw.github.com/${github-username}/dotfiles/master/setup.sh )"
+bash -c "$( curl -fsSL https://raw.github.com/key-sn/dotfiles/master/setup.sh )"
 ```
 
 ## Manual
