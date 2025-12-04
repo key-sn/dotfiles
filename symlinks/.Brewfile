@@ -1,9 +1,6 @@
 # インストール先の指定
 cask_args appdir: "/Applications"
 
-# 外部ライブラリをインストール
-tap "homebrew/cask-fonts"
-
 # CLIアプリケーションの管理
 brew "docker"
 brew "gh"
