@@ -15,30 +15,78 @@ fi
 
 cd "$DOTFILES_DIR"
 
-echo "==> Xcodeをインストールします..."
-xcode-select --install < /dev/null
+# Xcodeコマンドラインツールのインストール
+if ! xcode-select -p &> /dev/null; then
+  echo "==> Xcodeコマンドラインツールをインストール中..."
+  xcode-select --install
+  # インストール完了を待つ
+  until xcode-select -p &> /dev/null; do
+    sleep 5
+  done
+else
+    echo "Xcodeコマンドラインツールは既にインストール済みです"
+fi
 
-echo "==> シンボリックリンクを作成します..."
-./link.sh
+# シンボリックリンクの作成
+echo "==> シンボリックリンクを作成中..."
+
+# ホームディレクトリにシンボリックリンクを設定
+for dotfile in "${DOTFILES_DIR}"/symlinks/.??* ; do
+  # 除外するドットファイル
+  [[ "$dotfile" == "${DOTFILES_DIR}/.DS_Store" ]] && continue
+  
+  ln -sfnv "$dotfile" "$HOME"
+done
+
+# starship.tomlのシンボリックリンクを設定
+mkdir -p "$HOME/.config"
+ln -sfv "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
 
 #------------------------------------------
 # homebrew
 #------------------------------------------
-echo "==> homebrewをインストールします..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
+# Homebrewのインストール
+if ! command -v brew &> /dev/null; then
+  echo "==> Homebrewをインストール中..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo "==> .Brewfileで管理しているアプリケーションをインストールします..."
-brew bundle --global
+  # Apple SiliconとIntelで異なるパスを設定
+  if [[ $(uname -m) == 'arm64' ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+else
+  echo "Homebrewは既にインストール済みです"
+fi
 
-echo "==> .Brewfileで管理している不要なアプリケーションをアンインストールします..."
-brew bundle cleanup --global --force
+# Brewfileからインストール
+if [ -f "$HOME/.Brewfile" ]; then
+  echo "==> Brewfileのパッケージをインストール中..."
+  brew bundle --global
 
-echo "==> iTerm2の設定を同期します..."
-./iterm2/sync.sh
+  echo "==> 不要なパッケージをクリーンアップ中..."
+  brew bundle cleanup --global --force
+else
+  echo "警告: .Brewfileが見つかりません"
+fi
 
-echo "==> Macの設定を同期します..."
-./mac/sync.sh
+# iTerm2の設定同期 (ファイルが存在する場合のみ)
+if [ -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" ]; then
+  echo "==> iTerm2の設定を同期中..."
+  mkdir -p "$HOME/Library/Preferences"
+  cp -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+  defaults read com.googlecode.iterm2 > /dev/null 2>&1  # 設定を読み込む
+fi
 
-# echo "プログラミング言語をインストールします..."
+# macOS設定の適用
+if [ -f "${DOTFILES_DIR}/mac/sync.sh" ]; then
+  echo "==> macOS設定を適用中..."
+  bash "${DOTFILES_DIR}/mac/sync.sh"
+fi
+
+echo ""
+echo "==> セットアップ完了!"
+echo "変更を反映するには、ターミナルを再起動してください"
 
 exec $SHELL -l
