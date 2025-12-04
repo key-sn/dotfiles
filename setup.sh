@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 set -e  # エラーで停止
 
@@ -25,7 +25,7 @@ echo "==> シンボリックリンクを作成します..."
 # homebrew
 #------------------------------------------
 echo "==> homebrewをインストールします..."
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
 
 echo "==> .Brewfileで管理しているアプリケーションをインストールします..."
 brew bundle --global
