@@ -72,12 +72,13 @@ else
 fi
 
 # iTerm2の設定同期 (ファイルが存在する場合のみ)
-if [ -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" ]; then
-  echo "==> iTerm2の設定を同期中..."
-  mkdir -p "$HOME/Library/Preferences"
-  cp -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
-  defaults read com.googlecode.iterm2 > /dev/null 2>&1  # 設定を読み込む
-fi
+
+# if [ -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" ]; then
+#   echo "==> iTerm2の設定を同期中..."
+#   mkdir -p "$HOME/Library/Preferences"
+#   cp -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+#   defaults read com.googlecode.iterm2 > /dev/null 2>&1  # 設定を読み込む
+# fi
 
 # macOS設定の適用
 if [ -f "${DOTFILES_DIR}/mac/sync.sh" ]; then
