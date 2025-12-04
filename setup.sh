@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 echo "Xcodeをインストールします..."
 xcode-select --install < /dev/null
@@ -10,7 +10,7 @@ echo "シンボリックリンクを作成します..."
 # homebrew
 #------------------------------------------
 echo "homebrewをインストールします..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
 
 echo ".Brewfileで管理しているアプリケーションをインストールします..."
 brew bundle --global
