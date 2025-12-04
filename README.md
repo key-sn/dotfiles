@@ -3,7 +3,7 @@
 ## Init
 
 ```
-bash -c "$( curl -fsSL https://raw.github.com/key-sn/dotfiles/master/setup.sh )"
+DIR="$HOME/.dotfiles" && mkdir -p "$DIR" && curl -L https://github.com/key-sn/master/archive/refs/heads/main.zip | tar -xf - --strip-components=1 -C "$DIR" && sh "$DIR/setup.sh"
 ```
 
 ## Manual
