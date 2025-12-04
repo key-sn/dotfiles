@@ -1,9 +1,10 @@
 # dotfiles
 
 ## Init
+zipでダウンロード後、
 
 ```
-mkdir -p "$HOME/.dotfiles" && curl -L https://github.com/key-sn/dotfiles/archive/refs/heads/main.zip -o "$HOME/.dotfiles/repo.zip" && unzip -qo "$HOME/.dotfiles/repo.zip" -d "$HOME/.dotfiles" && sh "$HOME/.dotfiles"/dotfiles-main/setup.sh
+sh setup.sh
 ```
 
 ## Manual
