@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e  # エラーで停止
-
 DOTFILES_DIR="${HOME}/dotfiles"
 DOTFILES_REPO="https://github.com/key-sn/dotfiles.git"
 
