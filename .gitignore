@@ -4,6 +4,7 @@
 
 ### not ignore ###
 !/iterm2
+!/karabiner
 !/raycast
 !/mac
 !/symlinks
