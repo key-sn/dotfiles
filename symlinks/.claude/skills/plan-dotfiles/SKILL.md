@@ -1,5 +1,6 @@
 ---
 description: dotfilesの調査メモをもとに実装計画を作成し、ファイルに出力します。合意が取れるまで実装を開始しません。「dotfilesの計画を立てて」で起動します。
+allowed-tools: Read, Write, Edit, Grep, Glob, Task
 ---
 
 # dotfiles実装計画・合意スキル

@@ -1,5 +1,6 @@
 ---
 description: dotfilesの調査・計画・実装の3フェーズを一連のワークフローとして統合実行します。「dotfilesの〇〇を改善したい」で起動します。
+allowed-tools: Read, Edit, Write, Grep, Glob, WebFetch, Task
 ---
 
 # dotfiles統合ブラッシュアップスキル

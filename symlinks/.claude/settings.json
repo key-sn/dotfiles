@@ -12,7 +12,11 @@
     "allow": [
       "Bash(npm run lint)",
       "Bash(npm run test *)",
-      "Read(~/.zshrc)"
+      "Read(~/.zshrc)",
+      "Read",
+      "WebFetch",
+      "WebSearch",
+      "Bash(ls *)"
     ]
   },
   "env": {
@@ -25,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"応答が必要です\" with title \"Claude Code\" sound name \"default\"'",
+            "command": "osascript -e 'display notification \"応答が必要です\" with title \"Claude Code\" sound name \"Glass\"'",
             "async": true
           }
         ]
@@ -36,7 +40,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"作業が完了しました\" with title \"Claude Code\" sound name \"default\"'",
+            "command": "osascript -e 'display notification \"作業が完了しました\" with title \"Claude Code\" sound name \"Glass\"'",
             "async": true
           }
         ]

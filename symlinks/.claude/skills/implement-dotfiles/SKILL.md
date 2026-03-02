@@ -1,5 +1,6 @@
 ---
 description: 合意済みの計画書ファイルに沿ってdotfilesの実装を進め、進捗と検証結果を明確に報告します。「dotfilesの実装を進めて」で起動します。
+allowed-tools: Read, Edit, Write, Grep, Glob, Task, Bash(git -C ~/dotfiles *), Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(make *), Bash(docker compose exec *)
 ---
 
 # dotfiles実装・検証スキル

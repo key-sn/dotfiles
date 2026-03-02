@@ -1,5 +1,6 @@
 ---
 description: dotfilesの改善要望に対して、変更前の現状把握と根拠整理を行い、調査メモをファイルに出力します。「dotfilesの〇〇を調査して」で起動します。
+allowed-tools: Read, Write, Edit, Grep, Glob, WebFetch, WebSearch, Bash(ls *), Bash(mkdir *), Bash(docker compose exec *)
 ---
 
 # dotfiles調査・現状把握スキル
