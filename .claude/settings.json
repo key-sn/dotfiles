@@ -9,8 +9,8 @@
       "Bash(brew bundle:*)",
       "Bash(brew leaves:*)",
       "Bash(brew list:*)",
-      "Bash(rm *.bak)",
-      "Bash(mkdir -p ~/dotfiles/z/*)"
+      "Bash(mkdir -p ~/dotfiles/z/*)",
+      "Bash(find ~/dotfiles/z *)"
     ]
   }
 }
