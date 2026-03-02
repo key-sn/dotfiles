@@ -31,7 +31,6 @@ if command -v terminal-notifier &>/dev/null; then
   terminal-notifier \
     -title "Claude Code" \
     -message "${MESSAGE}" \
-    -sender "com.anthropic.claudefordesktop" \
     -sound "${SOUND}" \
     -execute "bash '${FOCUS_SCRIPT}'"
 else
