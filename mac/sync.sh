@@ -14,6 +14,10 @@ fi
 # 文頭を自動で大文字にしないようにする
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
+# キーリピートで特殊文字選択を無効化
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+
 # ====================
 #
 # Dock
@@ -66,6 +70,12 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 #
 # ====================
 
+# メニューバーの自動非表示を無効化
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
+
+# フルスクリーン時にメニューバーを表示
+defaults write NSGlobalDomain AppleMenuBarVisibleInFullscreen -bool true
+
 # 日付、曜日、時間の表記にする
 defaults write com.apple.menuextra.clock DateFormat -string 'EEE d MMM HH:mm'
 
@@ -92,3 +102,13 @@ for app in "Dock" \
 	"SystemUIServer"; do
 	killall "${app}" &> /dev/null
 done
+
+# ====================
+#
+# AppleScript
+#
+# ====================
+
+# ダークモードを有効化
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+

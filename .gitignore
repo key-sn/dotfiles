@@ -16,3 +16,23 @@
 !/README.md
 !/LICENCE
 !.gitignore
+
+# ----------------------------------
+# Claude Code 関連
+# ----------------------------------
+# 調査・計画用作業ディレクトリ
+/z/
+
+# .claudeディレクトリ配下は一旦すべて無視する
+/symlinks/.claude/*
+
+# ただし、自分で管理したいディレクトリ・ファイルだけは例外（!）としてGit管理に含める
+!/symlinks/.claude/skills/
+!/symlinks/.claude/rules/
+!/symlinks/.claude/prompts/
+!/symlinks/.claude/settings.json
+
+# (skillsディレクトリ等の中身はすべて追跡させる)
+!/symlinks/.claude/skills/**
+!/symlinks/.claude/rules/**
+!/symlinks/.claude/prompts/**

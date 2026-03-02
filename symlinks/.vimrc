@@ -30,6 +30,15 @@ set autoindent
 " Vimが暗い背景によく合う色を使おうとする
 set background=dark
 
+" デフォルト文字コード
+set encoding=utf-8
+
+" 文字コード推定に使う文字コードリスト
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+
+" 改行コードの自動認識
+set fileformats=unix,dos,mac
+
 " ファイルタイプの自動検出及びファイルタイプ用のプラグインとインデント設定を自動読込
 filetype plugin indent on
 

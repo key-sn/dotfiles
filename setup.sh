@@ -32,9 +32,16 @@ echo "==> シンボリックリンクを作成中..."
 for dotfile in "${DOTFILES_DIR}"/symlinks/.??* ; do
   # 除外するドットファイル
   [[ "$dotfile" == "${DOTFILES_DIR}/.DS_Store" ]] && continue
-  
+
   ln -sfnv "$dotfile" "$HOME"
 done
+
+# karabiner-elementsのシンボリックリンクを設定
+mkdir -p "$HOME/.config/karabiner"
+ln -sfv "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+
+# .claudeのシンボリックリンクを設定
+ln -sfnv "$DOTFILES_DIR/symlinks/.claude" "$HOME/.claude"
 
 # starship.tomlのシンボリックリンクを設定
 mkdir -p "$HOME/.config"
