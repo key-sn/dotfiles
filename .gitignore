@@ -16,6 +16,7 @@
 !/README.md
 !/LICENCE
 !.gitignore
+!/Brewfile.notes.md
 
 # ----------------------------------
 # Claude Code 関連

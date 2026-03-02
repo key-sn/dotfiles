@@ -1,45 +1,49 @@
-# インストール先の指定
-cask_args appdir: "/Applications"
-
-# CLIアプリケーションの管理
+brew "awscli"
+brew "direnv"
 brew "docker"
 brew "gh"
 brew "git"
-brew "wget"
-brew "direnv"
-brew "yarn"
-## JSONを扱うコマンドラインツール [https://stedolan.github.io/jq/]
 brew "jq"
-## AWS CLI [https://aws.amazon.com/jp/cli/]
-brew "awscli"
-## Rubyのバージョン管理 [https://github.com/rbenv/rbenv]
-brew "rbenv"
-## Rubyのインストールを簡単にするプラグイン [https://github.com/rbenv/ruby-build]
-brew "ruby-build"
-## シェルプロンプトのカスタマイズ [https://starship.rs/]
-brew "starship"
-## ctrl + r でコマンド履歴検索 [https://github.com/peco/peco]
+brew "mysql@8.0"
 brew "peco"
-## zshの補完機能拡張 [https://github.com/zsh-users/zsh-autosuggestions]
+brew "ruby-build"
+brew "rbenv"
+brew "starship"
+brew "wget"
+brew "yarn"
 brew "zsh-autosuggestions"
-
-# デスクトップアプリケーションの管理
-cask "alfred"
-cask "iterm2"
-cask "visual-studio-code"
-cask "google-chrome"
-cask "karabiner-elements"
-cask "claude-code"
-cask "raycast"
-cask "notion"
-cask "slack"
-cask "docker-desktop"
-# cask "zoom"
-cask "discord"
-cask "firefox"
-cask "sequel-ace"
-cask "rectangle"
-### for work
-cask "aws-vpn-client"
-## ターミナルのフォントを変更 [https://github.com/ryanoasis/nerd-fonts]
-cask "font-hack-nerd-font"
+cask "alfred", args: { appdir: "/Applications" }
+cask "aws-vpn-client", args: { appdir: "/Applications" }
+cask "claude-code", args: { appdir: "/Applications" }
+cask "discord", args: { appdir: "/Applications" }
+cask "docker-desktop", args: { appdir: "/Applications" }
+cask "firefox", args: { appdir: "/Applications" }
+cask "font-hack-nerd-font", args: { appdir: "/Applications" }
+cask "google-chrome", args: { appdir: "/Applications" }
+cask "iterm2", args: { appdir: "/Applications" }
+cask "karabiner-elements", args: { appdir: "/Applications" }
+cask "notion", args: { appdir: "/Applications" }
+cask "raycast", args: { appdir: "/Applications" }
+cask "rectangle", args: { appdir: "/Applications" }
+cask "sequel-ace", args: { appdir: "/Applications" }
+cask "slack", args: { appdir: "/Applications" }
+cask "visual-studio-code", args: { appdir: "/Applications" }
+vscode "aliariff.slim-lint"
+vscode "anthropic.claude-code"
+vscode "dbaeumer.vscode-eslint"
+vscode "docker.docker"
+vscode "esbenp.prettier-vscode"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "github.vscode-github-actions"
+vscode "hashicorp.terraform"
+vscode "janisdd.vscode-edit-csv"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-ceintl.vscode-language-pack-ja"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.makefile-tools"
+vscode "shopify.ruby-lsp"
+vscode "sianglim.slim"
+vscode "vscodevim.vim"

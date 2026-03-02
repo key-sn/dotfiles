@@ -1,6 +1,25 @@
 # Homebrewのパスを優先して設定
 export PATH="/opt/homebrew/bin:$PATH"
 
+# brew install/uninstall 時に .Brewfile を自動更新する wrapper
+# macOS 限定（brew bundle は macOS 専用）
+if [[ "$(uname)" == "Darwin" ]]; then
+  brew() {
+    command brew "$@"
+    local exit_code=$?
+    [[ $exit_code -ne 0 ]] && return $exit_code
+
+    local brewfile="${HOMEBREW_BUNDLE_FILE:-$HOME/.Brewfile}"
+    case "$1" in
+      install|uninstall|remove|rm|tap|untap)
+        [[ -f "$brewfile" ]] && command brew bundle dump --global --force 2>/dev/null
+        ;;
+    esac
+
+    return $exit_code
+  }
+fi
+
 # rbenvの初期化
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
