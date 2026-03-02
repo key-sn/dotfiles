@@ -3,7 +3,7 @@
 `.Brewfile` に記載されたパッケージの用途・選定理由をまとめたドキュメント。
 `brew bundle dump` で `.Brewfile` が自動更新されるため、コメントはこのファイルで管理する。
 
-最終更新: 2026-03-02
+最終更新: 2026-03-03
 
 ---
 
@@ -22,6 +22,7 @@
 | rbenv | Ruby バージョン管理 |
 | ruby-build | rbenv のプラグイン |
 | starship | zsh プロンプトのカスタマイズ |
+| terminal-notifier | macOS 通知センターへの CLI 通知送信（Claude Code フック用） |
 | wget | ファイルダウンロード CLI |
 | yarn | Node.js パッケージマネージャ |
 | zsh-autosuggestions | zsh の入力補完 |

@@ -36,9 +36,11 @@
 !/symlinks/.claude/skills/
 !/symlinks/.claude/rules/
 !/symlinks/.claude/prompts/
+!/symlinks/.claude/hooks/
 !/symlinks/.claude/settings.json
 
 # (skillsディレクトリ等の中身はすべて追跡させる)
 !/symlinks/.claude/skills/**
 !/symlinks/.claude/rules/**
 !/symlinks/.claude/prompts/**
+!/symlinks/.claude/hooks/**
