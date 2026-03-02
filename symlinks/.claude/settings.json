@@ -18,5 +18,29 @@
   "env": {
     "MAX_THINKING_TOKENS": "31999"
   },
-  "model": "opusplan"
+  "model": "opusplan",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"応答が必要です\" with title \"Claude Code\" sound name \"default\"'",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"作業が完了しました\" with title \"Claude Code\" sound name \"default\"'",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
 }
