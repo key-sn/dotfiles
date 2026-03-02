@@ -10,23 +10,25 @@ if [[ -z "$TTY_PATH" ]]; then
 fi
 
 # AppleScript で TTY が一致するセッションを特定しフォーカス
+# ※ set frontmost / return は iTerm2 AppleScript では使用不可（-10000 エラー）
 osascript << APPLESCRIPT
 tell application "iTerm2"
   activate
-  repeat with aWindow in windows
-    repeat with aTab in tabs of aWindow
-      repeat with aSession in sessions of aTab
-        if tty of aSession is "${TTY_PATH}" then
-          tell aWindow
-            select
-            set frontmost to true
-          end tell
-          tell aTab to select
-          tell aSession to select
-          return
+  set found to false
+  repeat with w in windows
+    repeat with t in tabs of w
+      repeat with s in sessions of t
+        if tty of s is "${TTY_PATH}" then
+          tell w to select
+          tell t to select
+          tell s to select
+          set found to true
+          exit repeat
         end if
       end repeat
+      if found then exit repeat
     end repeat
+    if found then exit repeat
   end repeat
 end tell
 APPLESCRIPT
