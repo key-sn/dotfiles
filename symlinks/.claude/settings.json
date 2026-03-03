@@ -23,6 +23,10 @@
     "MAX_THINKING_TOKENS": "31999"
   },
   "model": "opusplan",
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/scripts/statusline-command.sh"
+  },
   "hooks": {
     "PreToolUse": [
       {

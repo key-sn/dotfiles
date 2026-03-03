@@ -38,6 +38,7 @@
 !/symlinks/.claude/prompts/
 !/symlinks/.claude/hooks/
 !/symlinks/.claude/icons/
+!/symlinks/.claude/scripts/
 !/symlinks/.claude/settings.json
 
 # (各ディレクトリの中身はすべて追跡させる)
@@ -46,3 +47,4 @@
 !/symlinks/.claude/prompts/**
 !/symlinks/.claude/hooks/**
 !/symlinks/.claude/icons/**
+!/symlinks/.claude/scripts/**
