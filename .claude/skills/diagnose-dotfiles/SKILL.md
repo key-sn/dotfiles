@@ -36,7 +36,9 @@ allowed-tools: Read, Grep, Glob, Bash(ls -la *), Bash(find ~/dotfiles/z *), Bash
    - `find ~/dotfiles/z -name "*.md" -mtime +30` で30日以上更新されていない作業ファイルを一覧表示します。
 
 8. **スキル設定チェック（Low）**
-   - `~/dotfiles/symlinks/.claude/skills/*/SKILL.md` を全て読み込み、`description` と `allowed-tools` の記載が揃っているか確認します。
+   - `~/dotfiles/symlinks/.claude/skills/*/SKILL.md`（グローバルスキル）と
+     `~/dotfiles/.claude/skills/*/SKILL.md`（プロジェクトスキル）を全て読み込み、
+     `description` と `allowed-tools` の記載が揃っているか確認します。
 
 9. **レポートの生成と出力**
    - 各チェック結果を集約し、`~/dotfiles/z/yyyy-mm-dd-diagnose/report.md` に保存します（ディレクトリがなければ作成）。
