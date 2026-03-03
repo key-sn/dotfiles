@@ -39,6 +39,18 @@ alias cdp='cd ~/projects'
 alias bi='bundle install'
 alias be='bundle exec'
 
+# Claude Codeをタブタイトル付きで起動する関数
+# 使い方: cc [ラベル] [claudeへの引数...]
+#   cc                    → タイトル "CC: ディレクトリ名"
+#   cc "auth"             → タイトル "CC: auth"
+#   cc "auth" "/skill"    → タイトル "CC: auth"、claude に "/skill" を渡す
+function cc() {
+  local label="${1:-$(basename "$PWD")}"
+  printf '\033]0;CC: %s\007' "$label"
+  CLAUDE_TAB_LABEL="$label" claude "${@:2}"
+  printf '\033]0;%s\007' "$(basename "$PWD")"
+}
+
 # Claude Codeを用いたdotfiles管理コマンド
 alias dot-sync='cd ~/dotfiles && claude "/sync-dotfiles"'
 alias dot-improve='cd ~/dotfiles && claude "/improve-dotfiles"'
