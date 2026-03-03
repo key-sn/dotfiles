@@ -37,10 +37,12 @@
 !/symlinks/.claude/rules/
 !/symlinks/.claude/prompts/
 !/symlinks/.claude/hooks/
+!/symlinks/.claude/icons/
 !/symlinks/.claude/settings.json
 
-# (skillsディレクトリ等の中身はすべて追跡させる)
+# (各ディレクトリの中身はすべて追跡させる)
 !/symlinks/.claude/skills/**
 !/symlinks/.claude/rules/**
 !/symlinks/.claude/prompts/**
 !/symlinks/.claude/hooks/**
+!/symlinks/.claude/icons/**
