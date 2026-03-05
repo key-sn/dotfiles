@@ -28,16 +28,6 @@
     "command": "bash $HOME/.claude/scripts/statusline-command.sh"
   },
   "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/set-tab-title.sh"
-          }
-        ]
-      }
-    ],
     "Notification": [
       {
         "hooks": [
@@ -52,11 +42,6 @@
     "Stop": [
       {
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/set-tab-title.sh",
-            "async": true
-          },
           {
             "type": "command",
             "command": "bash $HOME/.claude/hooks/notify.sh",

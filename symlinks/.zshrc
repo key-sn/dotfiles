@@ -51,6 +51,11 @@ function cc() {
   printf '\033]0;%s\007' "$(basename "$PWD")"
 }
 
+# ターミナルのタブタイトルを現在のディレクトリ名にする関数
+function precmd() {
+  echo -ne "\033]0;${PWD##*/}\007"
+}
+
 # Claude Codeを用いたdotfiles管理コマンド
 alias dot-sync='cd ~/dotfiles && claude "/sync-dotfiles"'
 alias dot-improve='cd ~/dotfiles && claude "/improve-dotfiles"'

@@ -12,9 +12,27 @@ INPUT=$(cat 2>/dev/null || echo '{}')
 EVENT=$(echo "$INPUT" | jq -r '.hook_event_name // "Unknown"' 2>/dev/null || echo "Unknown")
 NOTIF_TYPE=$(echo "$INPUT" | jq -r '.notification_type // ""' 2>/dev/null || echo "")
 CWD=$(echo "$INPUT" | jq -r '.cwd // ""' 2>/dev/null || echo "")
+SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // ""' 2>/dev/null || echo "")
 
-# 通知タイトル: CLAUDE_TAB_LABEL > JSON の cwd basename > $PWD basename
-if [[ -n "${CLAUDE_TAB_LABEL:-}" ]]; then
+# in_progressなタスクのcontentを取得
+TASK_TEXT=""
+if [[ -n "$SESSION_ID" ]]; then
+  for todos_file in "${HOME}/.claude/todos/${SESSION_ID}"-agent-*.json; do
+    if [[ -f "$todos_file" ]]; then
+      task=$(jq -r '[.[] | select(.status == "in_progress") | .content] | first // ""' \
+              "$todos_file" 2>/dev/null || echo "")
+      if [[ -n "$task" ]]; then
+        TASK_TEXT="$task"
+        break
+      fi
+    fi
+  done
+fi
+
+# 通知タイトル: in_progressタスク > CLAUDE_TAB_LABEL > JSON の cwd basename > $PWD basename
+if [[ -n "$TASK_TEXT" ]]; then
+  TITLE="$TASK_TEXT"
+elif [[ -n "${CLAUDE_TAB_LABEL:-}" ]]; then
   TITLE="$CLAUDE_TAB_LABEL"
 elif [[ -n "$CWD" ]]; then
   TITLE="$(basename "$CWD")"
@@ -48,23 +66,13 @@ if [[ -n "$TTY_NAME" && "$TTY_NAME" != "??" ]]; then
 fi
 
 FOCUS_SCRIPT="$HOME/.claude/hooks/iterm-focus.sh"
-ICON_PATH="$HOME/.claude/icons/claude-code.png"
 
 if command -v terminal-notifier &>/dev/null; then
-  if [[ -f "$ICON_PATH" ]]; then
-    terminal-notifier \
-      -title "$TITLE" \
-      -message "$MESSAGE" \
-      -sound "$SOUND" \
-      -appIcon "file://${ICON_PATH}" \
-      -execute "bash '${FOCUS_SCRIPT}'"
-  else
-    terminal-notifier \
-      -title "$TITLE" \
-      -message "$MESSAGE" \
-      -sound "$SOUND" \
-      -execute "bash '${FOCUS_SCRIPT}'"
-  fi
+  terminal-notifier \
+    -title "$TITLE" \
+    -message "$MESSAGE" \
+    -sound "$SOUND" \
+    -execute "bash '${FOCUS_SCRIPT}'"
 else
   # フォールバック: terminal-notifier 未インストール時は osascript
   osascript -e "display notification \"${MESSAGE}\" with title \"${TITLE}\" sound name \"${SOUND}\""
