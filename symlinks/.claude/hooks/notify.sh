@@ -43,6 +43,9 @@ fi
 # イベント・通知タイプ別のメッセージとサウンド
 case "$EVENT" in
   "Notification")
+    # 入力・承認待ち通知を一時無効化中
+    # 再有効化: 以下の exit 0 をコメントアウトすること
+    exit 0
     case "$NOTIF_TYPE" in
       "permission_prompt") MESSAGE="承認が必要です";  SOUND="Glass" ;;
       "idle_prompt")       MESSAGE="入力待ちです";    SOUND="Glass" ;;

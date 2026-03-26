@@ -1,3 +1,4 @@
+tap "fujiwara/tap"
 brew "awscli"
 brew "direnv"
 brew "docker"
@@ -13,9 +14,11 @@ brew "terminal-notifier"
 brew "wget"
 brew "yarn"
 brew "zsh-autosuggestions"
+brew "fujiwara/tap/ecsta"
 cask "alfred", args: { appdir: "/Applications" }
 cask "aws-vpn-client", args: { appdir: "/Applications" }
 cask "claude-code", args: { appdir: "/Applications" }
+cask "cmux"
 cask "discord", args: { appdir: "/Applications" }
 cask "docker-desktop", args: { appdir: "/Applications" }
 cask "firefox", args: { appdir: "/Applications" }
@@ -34,7 +37,6 @@ vscode "anthropic.claude-code"
 vscode "dbaeumer.vscode-eslint"
 vscode "docker.docker"
 vscode "esbenp.prettier-vscode"
-vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "hashicorp.terraform"

@@ -3,7 +3,7 @@
 `.Brewfile` に記載されたパッケージの用途・選定理由をまとめたドキュメント。
 `brew bundle dump` で `.Brewfile` が自動更新されるため、コメントはこのファイルで管理する。
 
-最終更新: 2026-03-03
+最終更新: 2026-03-26
 
 ---
 
@@ -14,6 +14,7 @@
 | awscli | AWS CLI |
 | direnv | ディレクトリごとの環境変数管理 |
 | docker | Docker CLI |
+| fujiwara/tap/ecsta | （用途を記載してください） |
 | gh | GitHub CLI |
 | git | バージョン管理 |
 | jq | JSON パーサ CLI |
@@ -36,6 +37,7 @@
 | alfred | ランチャー（Raycast に移行中、削除候補） |
 | aws-vpn-client | 仕事用 AWS VPN |
 | claude-code | Claude Code CLI |
+| cmux | （用途を記載してください） |
 | discord | コミュニティ |
 | docker-desktop | Docker GUI |
 | firefox | サブブラウザ |
@@ -61,7 +63,6 @@
 | dbaeumer.vscode-eslint | ESLint 連携 |
 | docker.docker | Docker 連携 |
 | esbenp.prettier-vscode | コードフォーマッタ |
-| github.copilot | GitHub Copilot |
 | github.copilot-chat | GitHub Copilot Chat |
 | github.vscode-github-actions | GitHub Actions 連携 |
 | hashicorp.terraform | Terraform 連携 |
